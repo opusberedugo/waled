@@ -1,0 +1,7 @@
+npm init
+npm install tailwindcss @tailwindcss/cli
+code .
+npx @tailwindcss/cli -i ./src/input.css -o ./docs/output.css --watch
+cls
+npx @tailwindcss/cli -i ./src/input.css -o ./docs/css/output.css --watch
+doskey /history > commands.txt
