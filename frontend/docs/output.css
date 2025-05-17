@@ -232,6 +232,12 @@
   .mt-auto {
     margin-top: auto;
   }
+  .mr-auto {
+    margin-right: auto;
+  }
+  .ml-auto {
+    margin-left: auto;
+  }
   .block {
     display: block;
   }
