@@ -1,0 +1,181 @@
+[
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab231"
+  },
+  "name": "Intro to Machine Learning",
+  "price": 950,
+  "location": "Malta",
+  "availableSpaces": 4,
+  "subcategory": "Machine Learning",
+  "category": "Data Science",
+  "description": "Intro to Machine Learning in the category of Data Science. Courses covering data analysis, machine learning, and AI.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab232"
+  },
+  "name": "SEO Optimization Basics",
+  "price": 600,
+  "location": "Mauritius",
+  "availableSpaces": 0,
+  "subcategory": "SEO Optimization",
+  "category": "Digital Marketing",
+  "description": "SEO Optimization Basics in the category of Digital Marketing. Courses on SEO, social media marketing, and content strategy.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab233"
+  },
+  "name": "Financial Modeling",
+  "price": 700,
+  "location": "Dubai",
+  "availableSpaces": 3,
+  "subcategory": "Financial Modeling",
+  "category": "Business Analytics",
+  "description": "Financial Modeling in the category of Business Analytics. Classes on data interpretation and decision-making for businesses.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab234"
+  },
+  "name": "Yoga & Mindfulness",
+  "price": 300,
+  "location": "Malta",
+  "availableSpaces": 5,
+  "subcategory": "Yoga & Mindfulness",
+  "category": "Health & Wellness",
+  "description": "Yoga & Mindfulness in the category of Health & Wellness. Programs focused on mental and physical wellness practices.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab235"
+  },
+  "name": "Spanish Language Basics",
+  "price": 400,
+  "location": "Mauritius",
+  "availableSpaces": 5,
+  "subcategory": "Spanish Language",
+  "category": "Language Learning",
+  "description": "Spanish Language Basics in the category of Language Learning. Classes in various languages including Spanish, French, and Japanese.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab236"
+  },
+  "name": "French Language for Beginners",
+  "price": 400,
+  "location": "Malta",
+  "availableSpaces": 5,
+  "subcategory": "French Language",
+  "category": "Language Learning",
+  "description": "French Language for Beginners in the category of Language Learning. Classes in various languages including Spanish, French, and Japanese.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab237"
+  },
+  "name": "Python Fundamentals",
+  "price": 500,
+  "location": "Mauritius",
+  "availableSpaces": 5,
+  "subcategory": "Python Programming",
+  "category": "Coding Bootcamps",
+  "description": "Python Fundamentals in the category of Coding Bootcamps. Intensive coding courses for beginners to advanced students.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab238"
+  },
+  "name": "HTML & CSS for Beginners",
+  "price": 300,
+  "location": "Dubai",
+  "availableSpaces": 5,
+  "subcategory": "HTML & CSS Basics",
+  "category": "Coding Bootcamps",
+  "description": "HTML & CSS for Beginners in the category of Coding Bootcamps. Intensive coding courses for beginners to advanced students.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab239"
+  },
+  "name": "React for Developers",
+  "price": 650,
+  "location": "Malta",
+  "availableSpaces": 5,
+  "subcategory": "React Development",
+  "category": "Software Development",
+  "description": "React for Developers in the category of Software Development. Courses on full-stack, backend, and frontend development.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab23a"
+  },
+  "name": "Node.js Backend Basics",
+  "price": 600,
+  "location": "Dubai",
+  "availableSpaces": 5,
+  "subcategory": "Backend with Node.js",
+  "category": "Software Development",
+  "description": "Node.js Backend Basics in the category of Software Development. Courses on full-stack, backend, and frontend development.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab23b"
+  },
+  "name": "Data Analysis with Python",
+  "price": 700,
+  "location": "Mauritius",
+  "availableSpaces": 5,
+  "subcategory": "Data Analysis",
+  "category": "Data Science",
+  "description": "Data Analysis with Python in the category of Data Science. Courses covering data analysis, machine learning, and AI.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+},
+{
+  "_id": {
+    "$oid": "673ef4175d43fb8fb1cab23c"
+  },
+  "name": "Digital Marketing Strategies",
+  "price": 800,
+  "location": "Dubai",
+  "availableSpaces": 5,
+  "subcategory": "Digital Marketing",
+  "category": "Digital Marketing",
+  "description": "Digital Marketing Strategies in the category of Digital Marketing. Courses on SEO, social media marketing, and content strategy.",
+  "nestedField": {
+    "availableSpaces": 5
+  }
+}]
