@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/output.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 p-2 sm:p-5">
+    <nav class="flex items-center justify-between p-3 sm:p-5 rounded-3xl bg-white shadow-md">
+      <div class="brand flex items-center justify-between gap-x-4">
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-toggle" class="md:hidden focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+          </svg>          
+        </button>
+        <!-- Mobile menu button -->
+         
+        <div class="logo">
+          <a href="./" class="text-2xl font-semibold">
+            Wal<span class="text-lime-400 font-bold">ED</span>
+          </a>
+        </div>
+        
+
+      </div>
+
+      <div id="menu-content" class="options hidden md:flex md:grow md:items-center md:justify-between">
+        <div class="start"></div>
+        <div class="center flex flex-col md:flex-row items-center">
+          <a href="" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">About</a>
+          <a href="" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Courses</a>
+          <a href="./search.html" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Search</a>
+          <a href="./cart.html" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Cart</a>
+        </div>
+        <div class="end flex flex-col md:flex-row gap-y-2 md:gap-x-2 mt-4 md:mt-0">
+          <a href="./signup.html" class="py-2 px-3 text-center items-center gap-x-2 text-sm font-medium rounded-xl bg-white border border-gray-200 text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none transition">Log In</a>
+          <a href="./login.html" class="py-2 px-3 text-center items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 focus:outline-none focus:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Header -->
+
+  <section id="app" class="p-5">
+    <h2 class="text-xl font-semibold text-gray-900 sm:text-2xl">Shopping Cart</h2>
+    <!-- Grid Columns -->
+    <div class="grid grid-cols-3 gap-4 mt-5">
+      <!-- Columns -->
+        <div class="col-span-2">
+          <!-- Cart Items -->
+          <div  v-for="item in cart" class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:p-6 mb-4">
+            <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+              
+              <!-- Controls -->
+              <div class="flex items-center justify-between md:order-3 md:justify-end">
+                <div class="flex items-center">
+                  <button @click="reduceQuantity(item)" type="button" class="inline-flex h-5 w-5 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200">
+                    <svg class="h-2.5 w-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 1h16" />
+                    </svg>
+                  </button>
+                  <input type="text" class="w-10 text-center text-sm font-medium text-gray-900 border-0 bg-transparent focus:outline-none" v-model="item.quantity" readonly value="2" />
+                  <button @click="increaseQuantity(item)" type="button" class="inline-flex h-5 w-5 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200">
+                    <svg class="h-2.5 w-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 1v16M1 9h16" />
+                    </svg>
+                  </button>
+                </div>
+                <p class="text-base font-bold text-gray-900 ms-2">${{item.price}}</p>
+              </div>
+
+              <!-- Product Details -->
+              <div class="w-full flex-1 space-y-4 md:order-2 md:max-w-md grow">
+                    <p class="text-base font-medium text-gray-900">{{item.name}}</p>
+                    <div class="flex items-center gap-4">
+                      <button @click="removeFromCart(item)" type="button" class="inline-flex items-center text-sm font-medium text-red-600">
+                        <svg class="h-5 w-5 me-1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L17.94 6M18 18L6.06 6" />
+                        </svg>
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <!-- End of Cart Items -->
+        </div>
+        <!-- Columns -->
+        
+        <!-- Columns  2-->
+        <div class="col-span-1 ">
+          <div class="mx-auto mb-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
+            <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
+              <p class="text-xl font-semibold text-gray-900">Order summary</p>
+              <dl class="flex items-center justify-between gap-4" v-for="item in cart">
+                <dt class="text-base font-normal text-gray-500">{{item.name}}({{item.quantity}})</dt>
+                <dd class="text-base font-medium text-gray-900">${{item.price * item.quantity}}</dd>
+              </dl>
+
+              <dl class="flex items-center justify-between gap-4">
+                <dt class="text-base font-normal text-gray-500">Total</dt>
+                <dd class="text-base font-medium text-gray-900">${{totalPrice}}</dd>
+              </dl>
+            </div>
+          </div>
+
+        <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm sm:p-6">
+          <form action="" @submit.prevent="checkout" method="post">
+            <div class="col-span-3">
+              <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Full name</label>
+              <input v-model.trim="fullname" @input="verifyFullName"  id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required  type="text" name="fullname"/>
+              <p class="text-red-500 hover:text-red-900">{{fullnameError}}</p>
+
+
+              <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Phone Number</label>
+              <input v-model.trim="phone"  id="first_name" @input="verifyPhone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" type="tel" required name="phone"/>
+              <p class="text-red-500 hover:text-red-900">{{phoneError}}</p>
+              <input v-model.trim="orderObj"  id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 hidden" placeholder="" type="tel" required name="orderObj" />
+          </div>
+          <button type="submit" class="flex w-full items-center px-3 py-2 justify-center rounded-lg text-sm font-medium  bg-lime-400 text-black hover:bg-lime-500 focus:outline-none focus:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none">Checkout</button>
+          </form>
+
+        </div>
+        <!-- End of Form Container -->
+
+      </div>
+      <!-- End of Column -->
+    <!-- Grid Columns 2 -->
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/cart.js"></script>
+</body>
+</html>

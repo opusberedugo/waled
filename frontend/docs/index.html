@@ -35,8 +35,8 @@
         <div class="center flex flex-col md:flex-row items-center">
           <a href="" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">About</a>
           <a href="" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Courses</a>
-          <a href="" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Policies</a>
-          <a href="" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Cart</a>
+          <a href="./search.html" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Search</a>
+          <a href="./cart.html" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Cart</a>
         </div>
         <div class="end flex flex-col md:flex-row gap-y-2 md:gap-x-2 mt-4 md:mt-0">
           <a href="./signup.html" class="py-2 px-3 text-center items-center gap-x-2 text-sm font-medium rounded-xl bg-white border border-gray-200 text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none transition">Log In</a>
@@ -69,7 +69,7 @@
       
 
       <!-- Card -->
-      <a href="" class="group flex flex-col focus:outline-hidden" v-for="course in courses" :key="course.id">
+      <a href="#" class="group flex flex-col focus:outline-hidden" v-for="course in courses" :key="course.id">
         <!-- Card Image -->
         <div class="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
           <img src="http://localhost:3000/dummy_560x373_ffffff_9ae600.png" alt="" class="w-full group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl">
@@ -95,7 +95,7 @@
 
               {{course.price }}
             </span>
-            <button class="py-1.5 px-3 ml-a flex text-center items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 focus:outline-none focus:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none ">
+            <button @click="addToCart(course)" class="py-1.5 px-3 ml-a flex text-center items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 focus:outline-none focus:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none ">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
               </svg>
@@ -116,34 +116,7 @@
   <!-- Latest Content -->
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-<script>
-  // Mobile menu toggle functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const menuContent = document.getElementById('menu-content');
-    
-    mobileMenuToggle.addEventListener('click', function() {
-      // Toggle the hidden class on mobile
-      if (menuContent.classList.contains('hidden')) {
-        menuContent.classList.remove('hidden');
-        menuContent.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'shadow-md', 'p-4', 'rounded-b-3xl', 'z-50');
-      } else {
-        menuContent.classList.add('hidden');
-        menuContent.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'shadow-md', 'p-4', 'rounded-b-3xl', 'z-50');
-      }
-    });
-
-    // Handle window resize to reset menu state for desktop view
-    window.addEventListener('resize', function() {
-      if (window.innerWidth >= 768) { // md breakpoint in Tailwind
-        menuContent.classList.remove('hidden', 'flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'shadow-md', 'p-4', 'rounded-b-3xl');
-        menuContent.classList.add('md:flex');
-      } else if (!menuContent.classList.contains('hidden') && !menuContent.classList.contains('flex')) {
-        menuContent.classList.add('hidden');
-      }
-    });
-  });
-</script>
+<script src="./js/index.js"></script>
 <script src="./js/main.js"></script>
 </body>
 </html>
