@@ -4,6 +4,11 @@ let app = new Vue({
     message: 'Hello Vue!',
     courses: [],
     cart: JSON.parse(sessionStorage.getItem('cart')) || [],
+    fullname: '',
+    phone: '',
+    fullnameError: '',
+    phoneError: '',
+    orderObj: '',
   },
   methods: {
     increaseQuantity(course){
@@ -33,11 +38,60 @@ let app = new Vue({
       sessionStorage.setItem('cart', JSON.stringify(this.cart));
     },
     
+    verifyFullName() {
+      if (this.fullname.length < 3) {
+        this.fullnameError = 'Full name must be at least 3 characters';
+      } else if (!/^[a-zA-Z\s]*$/.test(this.fullname)) {
+        this.fullnameError = 'Full name should contain only letters and spaces';
+      } else {
+        this.fullnameError = '';
+      }
+    },
+    
+    verifyPhone() {
+      if (this.phone.length < 10) {
+        this.phoneError = 'Phone number must be at least 10 digits';
+      } else if (!/^\d+$/.test(this.phone)) {
+        this.phoneError = 'Phone number should contain only digits';
+      } else {
+        this.phoneError = '';
+      }
+    },
+    
     checkout() {
-      // Checkout logic
-      console.log("Processing checkout");
-      // Additional checkout logic can be added here
-    }
+      // Verify all fields are valid before proceeding
+      this.verifyFullName();
+      this.verifyPhone();
+      
+      if (this.fullnameError || this.phoneError || this.cart.length === 0) {
+        console.log("Cannot checkout - form has errors or cart is empty");
+        return;
+      }
+      
+      // Create order object with user details and cart items
+      const order = {
+        customerName: this.fullname,
+        customerPhone: this.phone,
+        items: this.cart,
+        totalAmount: this.totalPrice,
+        orderDate: new Date().toISOString()
+      };
+      
+      // Stringify the order object and assign it to orderObj for form submission
+      this.orderObj = JSON.stringify(order);
+      
+      console.log("Processing checkout", order);
+      
+      // You would typically submit this data to a server endpoint
+      // For now, we'll simulate a successful order
+      alert("Thank you for your order! We'll contact you soon.");
+      
+      // Clear the cart and reset form
+      this.cart = [];
+      this.updateCart();
+      this.fullname = '';
+      this.phone = '';
+    },
   },
   computed: {
     totalPrice() {

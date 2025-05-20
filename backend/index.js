@@ -44,3 +44,14 @@ app.get('/api/get-courses',async (req, res) => {
     res.status(500).json({ error: 'Internal server error' })
   }
 })
+
+app.post('/api/add-order', async (req, res) =>{
+  try {
+    const collection = db.collection("orders")
+    const result = await collection.insertOne(req.body)
+    res.json(result).status(200)
+  } catch (exception) {
+    console.error('Error adding order:', exception)
+    res.status(500).json({ error: 'Internal server error' })
+  }
+})
