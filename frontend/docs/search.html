@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/output.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 p-2 sm:p-5">
+    <nav class="flex items-center justify-between p-3 sm:p-5 rounded-3xl bg-white shadow-md">
+      <div class="brand flex items-center justify-between gap-x-4">
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-toggle" class="md:hidden focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+          </svg>          
+        </button>
+        <!-- Mobile menu button -->
+         
+        <div class="logo">
+          <a href="./" class="text-2xl font-semibold">
+            Wal<span class="text-lime-400 font-bold">ED</span>
+          </a>
+        </div>
+        
+
+      </div>
+
+      <div id="menu-content" class="options hidden md:flex md:grow md:items-center md:justify-between">
+        <div class="start"></div>
+        <div class="center flex flex-col md:flex-row items-center">
+          <a href="" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">About</a>
+          <a href="" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Courses</a>
+          <a href="./search.html" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Search</a>
+          <a href="./cart.html" class="block w-full py-3 md:p-5 text-center hover:text-lime-400 transition">Cart</a>
+        </div>
+        <div class="end flex flex-col md:flex-row gap-y-2 md:gap-x-2 mt-4 md:mt-0">
+          <a href="./signup.html" class="py-2 px-3 text-center items-center gap-x-2 text-sm font-medium rounded-xl bg-white border border-gray-200 text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none transition">Log In</a>
+          <a href="./login.html" class="py-2 px-3 text-center items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 focus:outline-none focus:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Header -->
+
+  <form action="" method="post" class="p-5">
+    <input type="text" class="border border-gray-300 rounded-3xl p-5 py-3 text-xs shadow-md min-w-xl me-3" placeholder="Search for courses...">
+    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Ascending</p>
+    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Descending</p>
+    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Descending</p>
+    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Name</p>
+    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Location</p>
+    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Price</p>
+  </form>
+</body>
+</html>

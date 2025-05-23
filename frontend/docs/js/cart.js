@@ -8,7 +8,6 @@ let app = new Vue({
     phone: '',
     fullnameError: '',
     phoneError: '',
-    orderObj: '',
   },
   methods: {
     increaseQuantity(course){
@@ -58,7 +57,7 @@ let app = new Vue({
       }
     },
     
-    checkout() {
+    async checkout() {
       // Verify all fields are valid before proceeding
       this.verifyFullName();
       this.verifyPhone();
@@ -77,20 +76,39 @@ let app = new Vue({
         orderDate: new Date().toISOString()
       };
       
-      // Stringify the order object and assign it to orderObj for form submission
-      this.orderObj = JSON.stringify(order);
-      
       console.log("Processing checkout", order);
       
-      // You would typically submit this data to a server endpoint
-      // For now, we'll simulate a successful order
-      alert("Thank you for your order! We'll contact you soon.");
-      
-      // Clear the cart and reset form
-      this.cart = [];
-      this.updateCart();
-      this.fullname = '';
-      this.phone = '';
+      try {
+        // Send POST request to the API endpoint
+        const response = await fetch('http://localhost:3000/api/add-order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(order)
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          console.log("Order submitted successfully:", result);
+          alert("Thank you for your order! We'll contact you soon.");
+          
+          // Clear the cart and reset form after successful submission
+          this.cart = [];
+          this.updateCart();
+          this.fullname = '';
+          this.phone = '';
+          this.fullnameError = '';
+          this.phoneError = '';
+        } else {
+          const errorData = await response.json();
+          console.error("Failed to submit order:", errorData);
+          alert("Sorry, there was an error processing your order. Please try again.");
+        }
+      } catch (error) {
+        console.error("Network error:", error);
+        alert("Sorry, there was a network error. Please check your connection and try again.");
+      }
     },
   },
   computed: {
