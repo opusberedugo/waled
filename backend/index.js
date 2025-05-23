@@ -161,3 +161,16 @@ app.post('/api/add-order', async (req, res) =>{
     res.status(500).json({ error: 'Internal server error' })
   }
 })
+
+app.get('/api/search', async (req, res) => {
+  try {
+    const collection = db.collection("courses")
+    const name = req.query.query || ''
+    
+    const result =await collection.find({["name"]: {$regex: name, $options: 'i'}},).toArray()
+    res.status(200).json(result)
+  } catch (exception) {
+    console.error('Error searching courses:', exception)
+    res.status(500).json({ error: 'Internal server error' })
+  }
+})
