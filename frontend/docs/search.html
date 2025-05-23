@@ -45,14 +45,68 @@
   </header>
   <!-- Header -->
 
-  <form action="" method="post" class="p-5">
-    <input type="text" class="border border-gray-300 rounded-3xl p-5 py-3 text-xs shadow-md min-w-xl me-3" placeholder="Search for courses...">
-    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Ascending</p>
-    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Descending</p>
-    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Descending</p>
-    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Name</p>
-    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Location</p>
-    <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Price</p>
-  </form>
+  <section id="app">
+    <form action="" method="post" class="p-5">
+      <input type="text" class="border border-gray-300 rounded-3xl p-5 py-3 text-xs shadow-md min-w-xl me-3" placeholder="Search for courses...">
+      <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Ascending</p>
+      <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Descending</p>
+      <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Descending</p>
+      <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Name</p>
+      <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Location</p>
+      <p class="inline-flex items-center gap-x-1.5 py-3 p-5 rounded-full text-xs font-medium border border-lime-400 text-lime-400 ">Price</p>
+    </form>
+
+    <!-- Card Grid -->
+     <div class=" grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 p-5">
+      
+
+      <!-- Card -->
+      <a href="#" class="group flex flex-col focus:outline-hidden" v-for="course in courses" :key="course.id">
+        <!-- Card Image -->
+        <div class="aspect-w-16 aspect-h-12 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800">
+          <img src="http://localhost:3000/dummy_560x373_ffffff_9ae600.png" alt="" class="w-full group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl">
+        </div>
+        <!-- Card Image -->
+
+        <div class="pt-5">
+        <h3 class="relative inline-block font-medium text-lg text-black before:absolute before:bottom-0.5 before:start-0 before:-z-1 before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100">{{course.name}}</h3>
+          <p class="mt-1 text-gray-600">{{course.description}}</p>
+
+          <div class="mt-3 flex flex-wrap gap-2 w-full">
+            <span class="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl">{{course.category }}</span>
+            <span class="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl flex items-center ">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>
+              {{course.availableSpaces}}
+            </span>
+            <span class="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl flex items-center  mr-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+
+              {{course.price }}
+            </span>
+            <button @click="addToCart(course)" class="py-1.5 px-3 ml-a flex text-center items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 focus:outline-none focus:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none ">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+              </svg>
+
+
+              Add to Cart
+            </button>
+          </div>
+
+        </div>
+      </a>
+      <!-- Card -->
+
+
+     </div>
+    <!-- Card Grid -->
+  </section>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/main.js"></script>
 </body>
 </html>
